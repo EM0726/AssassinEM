@@ -1,0 +1,22 @@
+#include <stdio.h>
+float TAN(float a,float b,float c)			//定义周长函数 
+{
+    if( (a+b)<=c || (a+c)<=b || (b+c)<=a )   //判断是否为三角形
+    {
+        printf("不构成三角形\n");
+        return 0;                                
+    }
+    else
+    {
+      float C = a+b+c;     //计算三角形周长
+      return C;							//返回表达式 
+    }
+}
+int main()
+{
+    float a,b,c;
+    printf("在此输入三角形边长\n");
+    scanf("%f%f%f",&a,&b,&c); 
+    printf("三角形的周长是：%f\n", TAN(a,b,c));   //调用周长函数
+    return 0;
+}
