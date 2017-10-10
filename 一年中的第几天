@@ -1,0 +1,57 @@
+#include <stdio.h>
+int main() 
+{ 
+    //定义需要计算的日期 
+    int year ;
+    int month ;
+    int day ;
+    printf("在此输入年月日\n"); 
+    scanf("%d%d%d",&year,&month,&day);
+    int sum;
+    switch(month)
+    {
+        case 1:sum=0;
+        break;
+        case 2:sum=31;
+        break;
+        case 3:sum=59;
+        break;
+        case 4:sum=90;
+        break;
+        case 5:sum=120;
+        break;
+        case 6:sum=151;
+        break;
+        case 7:sum=181;
+        break;
+        case 8:sum=212;
+        break;
+        case 9:sum=243;
+        break;
+        case 10:sum=273;
+        break;
+        case 11:sum=304;
+        break;
+        case 12:sum=334;
+        default:printf("一年有几个月都不知道吗傻逼");
+        break;
+    }
+    sum=sum+day;
+    
+    if(year%4!=0)
+    {
+        printf("%d年%d月%d日是该年的第%d天",year,month,day,sum);
+    }
+    else
+    {
+        if(month>2)
+        {
+            sum++;
+            printf("%d年%d月%d日是该年的第%d天",year,month,day,sum);
+        }
+        else{
+            printf("%d年%d月%d日是该年的第%d天",year,month,day,sum);
+        }
+    }
+	return 0;
+}
