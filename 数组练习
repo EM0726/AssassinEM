@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h> 
+//在一个长度为10的整型数组里面，保存了班级10个学生的考试成绩。要求编写5个函数，分别实现计算考试的总分，最高分，最低分，平均分和考试成绩降序排序。 
+int main()
+{   
+    int arr[]={67,98,75,63,82,79,81,91,66,84};
+    int i,sum;
+    for(i=0;i<9;i++)
+    {
+		sum+=arr[i];
+	}
+	printf("考试总分为%d\n",sum);
+    int avg=sum/9;
+    printf("考试平均分为%d\n",avg);
+    int j,m,n;
+    for(m=8;m>=0;m--)
+    {
+    	for(j=0;j<=m;j++)
+    	{
+			if(arr[j]<arr[j+1])
+    		{
+    		n=arr[j];
+    		arr[j]=arr[j+1];
+    		arr[j+1]=n;
+			}
+		}
+	}
+	printf("考试最低分为%d\n",arr[8]);
+	printf("考试最高分为%d\n",arr[0]);
+	printf("考试成绩降序排序为\n");
+	int x;
+	for(x=0;x<9;x++)
+	{
+		printf("%d\n",arr[x]);
+	}
+	system("pause");
+    return 0;
+}
