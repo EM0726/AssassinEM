@@ -1,0 +1,31 @@
+#include<stdio.h>
+int fun(int n)
+{
+	int i;
+	int sum=0;
+	for(i=1;i<=n;i++)
+	{
+		sum+=i;
+	}
+	return sum;
+}
+
+int main()
+{
+	int n,j,i;
+	int sum=0;
+	scanf("%d",&n);
+	if(n<=0)
+	{
+		printf("输入错误！\n");
+	}
+	else
+	{
+		for(j=1;j<=n;n--)
+		{			
+			sum+=fun(n);
+		}
+		printf("%d\n",sum);
+	}	 
+	return 0;
+}
