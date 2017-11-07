@@ -1,0 +1,60 @@
+#include<stdio.h>
+int secondNumber(int n)
+{
+	int i,j,k,sec,min,max;			//第二小且非最大 
+	int data[n];
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&data[i]);
+	}
+	min=data[0];
+	max=data[1];
+	sec=data[2];
+	for(j=1;j<n;j++)
+	{
+		if(data[j]<min)
+		{
+			sec=min;
+			min=data[j];
+		}
+		else
+		{
+			if(data[j]<sec&&data[j]!=min)
+				sec=data[j];
+		}
+	}
+	for(k=0;k<n;k++)
+	{
+		if(data[k]>max)
+		{
+			max=data[k];
+		}
+	}
+	if(sec==min||sec==max||n<3)
+		return -1;
+	else
+		return sec;
+}
+int main()
+{
+	int m,n,a,b;
+	int sec[m];
+	scanf("%d",&m);
+	for(a=0;a<m;a++)
+	{
+		scanf("%d",&n);
+		sec[a]=secondNumber(n);
+	}
+	for(b=0;b<m;b++)
+	{
+		if(sec[b]==-1)
+		{
+			printf("ERROR\n");
+		}
+		else
+		{
+			printf("%d\n",sec[b]);
+		}
+	}
+	return 0;	
+} 
