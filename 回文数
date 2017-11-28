@@ -1,20 +1,19 @@
 #include<stdio.h>
 int main()
 {
-	int n,i,j,m;
+	int a,b,m,n;
 	scanf("%d",&n);
+	a=n;
 	m=0;
-	i=n;
-	while(i!=0)
+	while(a!=0)
 	{
-		j=i%10;
-		i=i/10;
-		m=m*10+j;
+		b=a%10;				//取最后一位 
+		a/=10;
+		m=m*10+b;			//倒序 
 	}
-	if(m!=n)
-		printf("No\n");
+	if(m==n)
+		printf("%d是回文数\n",n);
 	else
-		printf("Yes\n");	
-	
+		printf("%d不是回文数\n",n);	 
 	return 0;
-}
+} 
