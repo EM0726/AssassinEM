@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int n,i;
+	int a[n],b[n],c[n];
+	float p;
+	float s[n];
+	scanf("%d",&n); 
+	for(i=0;i<n;i++)
+	{
+		scanf("%d%d%d",&a[i],&b[i],&c[i]);
+		p=(a[i]+b[i]+c[i])/2;
+		s[i]=sqrt(p*(p-a[i])*(p-b[i])*(p-c[i]));
+		if(a[i]+b[i]<c[i] || b[i]+c[i]<a[i] || c[i]+a[i]<b[i])
+			printf("error\n");
+		else
+			printf("%.2f\n",s[i]);
+	}
+	return 0;
+}
