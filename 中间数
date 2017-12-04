@@ -1,0 +1,38 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,mid,n,a,b;
+	scanf("%d",&n);
+	int arr[n];
+	for(i=0;i<n;i++)
+		scanf("%d",&arr[i]);
+	mid=arr[0];
+	if(n>=3)
+	{
+		for(i=0;i<n;i++)
+		{
+			mid=arr[i];
+			j=0;
+			a=0;
+			b=0;
+			while(j<n)
+			{
+				if(mid<arr[j])
+					a++;
+				else if(mid>arr[j])
+					b++;
+				j++;
+			}
+			if(a==b)
+			{
+				printf("%d\n",mid);
+				break;
+			}
+		}
+		if(a!=b)
+			printf("-1\n");	
+	}
+	else
+		printf("-1\n");
+	return 0;
+}
