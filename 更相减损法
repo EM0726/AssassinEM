@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main()
+{
+	int a,b,x1,x2,temp;
+	scanf("%d%d",&x1,&x2);
+	a=x1;
+	b=x2;
+	while(a!=b)
+	{		
+		if(a>b)												
+			a-=b;
+		else
+			b-=a;	
+	}
+	printf("最大公因数为%d\n最小公倍数为%d\n",a,x1*x2/a);
+	return 0;
+} 
