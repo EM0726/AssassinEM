@@ -1,0 +1,22 @@
+#include<stdio.h>
+int main()
+{
+	int a,b,x1,x2,temp;
+	scanf("%d%d",&x1,&x2);
+	if(x1<x2)
+	{
+		temp=x1;
+		x1=x2;
+		x2=temp;
+	}
+	a=x1;										//你知道最小公倍数=两数乘积/最大公因数吗？ 
+	b=x2;										//哇靠感觉自己小学数学废了有木有 QAQ  辣鸡zqr
+	while(b!=0)									//敲黑板  辗转相除法  
+	{	
+		temp=a%b;
+		a=b;
+		b=temp;
+	} 
+	printf("最大公因数为%d\n最小公倍数为%d\n",a,x1*x2/a);
+	return 0;
+} 
