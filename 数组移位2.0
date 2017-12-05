@@ -2,8 +2,8 @@
 int main()
 {
 	int i,j,k,m,n,temp,x;
-	int arr[m];
 	scanf("%d",&m);
+	int arr[m];
 	scanf("%d",&n);
 	scanf("%d",&x);
 	for(i=0;i<m;i++)
