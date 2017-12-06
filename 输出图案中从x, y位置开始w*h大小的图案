@@ -1,0 +1,22 @@
+#include<stdio.h>
+int main()
+{
+	char pattern[100][100]={"--**-**--","-*--*--*-","-*-----*-","--*---*--","---*-*---","----*----"};
+	int i,j,k;
+	int x,y,w,h;
+	scanf("%d%d%d%d",&x,&y,&w,&h);
+	if(1<=x&&x<=9&&1<=y&&y<=6&&1<=w&&w<=9&&1<=h&&h<=6&&2<=x+w&&x+w<=10&&2<=y+h&&y+h<=7)
+	{
+		for(i=y;i<y+h;i++)
+		{
+			for(j=x;j<x+w;j++)
+			{
+				printf("%c",pattern[i-1][j-1]);
+			}
+			printf("\n");
+		}
+	}
+	else
+		printf("Input Error\n");
+	return 0;
+} 
