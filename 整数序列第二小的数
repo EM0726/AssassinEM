@@ -1,36 +1,25 @@
 #include<stdio.h>
 int secondNumber(int n)
 {
-	int i,j,k,sec,min,max;			//第二小且非最大 
+	int i,j,k,sec,min,temp;			//第二小
 	int data[n];
 	for(i=0;i<n;i++)
-	{
 		scanf("%d",&data[i]);
-	}
 	min=data[0];
-	max=data[1];
-	sec=data[2];
-	for(j=1;j<n;j++)				//排出最小及第二小的数 
+	sec=data[i-1];
+	for(j=1;j<n;j++)				//排出最小的数 
 	{
-		if(data[j]<min)					
+		if(data[j]<min)
 		{
 			sec=min;
 			min=data[j];
 		}
-		else if(data[j]>min)
+		else if(data[j]>min&&data[j]<sec)
 		{
-			if(data[j]<sec)
-				sec=data[j];
+			sec=data[j];
 		}
 	}
-	for(k=1;k<n;k++)				//确认非最大 
-	{
-		if(data[k]>max)
-		{
-			max=data[k];
-		}
-	}
-	if(sec==min||sec==max||n<3)
+	if(sec<=min||n<1)
 		return -1;
 	else
 		return sec;
@@ -38,8 +27,8 @@ int secondNumber(int n)
 int main()
 {
 	int i,m,n,sec;
-	int arr[m]; 
 	scanf("%d",&m);
+	int arr[m]; 
 	for(i=0;i<m;i++)
 	{
 		scanf("%d",&arr[i]);
