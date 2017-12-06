@@ -1,0 +1,33 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,k,n,m,p,q,temp,x;
+	scanf("%d",&n);
+	int arr[n];
+	for(i=0;i<n;i++)
+		arr[i]=i+1;
+	scanf("%d",&m);
+	for(i=0;i<m;i++)
+	{	
+		scanf("%d%d",&p,&q);
+		for(k=0;k<n;k++)		        	//皇甫：每次调序前搜索到该生学号 
+			if(p==arr[k])
+				x=k;
+		temp=arr[x];
+		if(q>0)
+		{
+			for(j=x;j<x+q;j++) 
+				arr[j]=arr[j+1];
+			arr[x+q]=temp;
+		}
+		else if(q<0)
+		{
+			for(j=x;j>x+q;j--)
+				arr[j]=arr[j-1];
+			arr[x+q]=temp;
+		}
+	}
+	for(i=0;i<n;i++)
+		printf("%d ",arr[i]);
+	return 0;
+} 
