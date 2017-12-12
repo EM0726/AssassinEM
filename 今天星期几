@@ -1,0 +1,53 @@
+#include<stdio.h>
+int main()
+{
+	int year,month,day;
+	int sum,A,B,i;
+	int a[100];
+	scanf("%d%*c%d%*c%d",&year,&month,&day);     //%*c表示忽略一位（又是皇甫→→） 
+	for(i=0;i<12;i++)
+	{
+		if(i==0||i==2||i==4||i==6||i==7||i==9||i==11)
+			a[i]=31;
+		else if(i==3||i==5||i==8||i==10)	
+			a[i]=30;
+		else
+		{
+			if(year%4==0&&year%100!=0||year%400==0)		//闰年定义：y%4==0&&y%100!=0||y%400==0 
+				a[i]=29;
+			else
+				a[i]=28;
+		}
+	}
+	sum=0;
+	for(i=1900;i<year;i++)
+	{
+		if(i%4==0&&i%100!=0||i%400==0)
+			A=366;
+		else
+			A=365;
+		sum+=A;
+	}
+	B=month-1;
+	for(i=0;i<B;i++)
+		sum+=a[i];
+	sum+=day;
+	if(year>=1900&&day>0&&day<=31&&month>0&&month<=12)
+	{
+		if(sum%7==1)
+			printf("Monday\n");
+		else if(sum%7==2) 
+			printf("Tuesday\n");
+		else if(sum%7==3)
+			printf("Wednesday\n");
+		else if(sum%7==4)
+			printf("Thursday\n");
+		else if(sum%7==5)
+			printf("Friday\n");
+		else if(sum%7==6)
+			printf("Saturday\n");
+		else if(sum%7==0)
+			printf("Sunday\n");
+	}
+	return 0;
+}
