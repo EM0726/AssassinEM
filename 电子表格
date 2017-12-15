@@ -1,0 +1,81 @@
+#include<stdio.h>
+int main()
+{
+	int m,n,i,j;
+	scanf("%d%d",&m,&n);
+	int arr[50][50];
+	for(i=0;i<m;i++)
+		for(j=0;j<n;j++)
+			scanf("%d",&arr[i][j]);
+	int k,temp,p,q,l;
+	scanf("%d",&k);
+	char func[12];					//12随便写的 
+	for(i=0;i<k;i++)
+	{
+		scanf("%s",func);
+		if(func[0]=='S'&&func[1]=='R')
+		{
+			scanf("%d%d",&p,&q);
+			for(j=0;j<n;j++)
+			{
+				temp=arr[p-1][j];
+				arr[p-1][j]=arr[q-1][j];
+				arr[q-1][j]=temp;
+			}
+		}
+		else if(func[0]=='S'&&func[1]=='C')
+		{
+			scanf("%d%d",&p,&q);
+			for(j=0;j<m;j++)
+			{
+				temp=arr[j][q-1];
+				arr[j][q-1]=arr[j][p-1];
+				arr[j][p-1]=temp;
+			}
+		}
+		else if(func[0]=='D'&&func[1]=='R')
+		{
+			scanf("%d",&p);
+			for(j=p-1;j<m-1;j++)
+				for(l=0;l<n;l++)
+					arr[j][l]=arr[j+1][l];
+					m--;
+		}
+		else if(func[0]=='D'&&func[1]=='C')
+		{
+			scanf("%d",&q);
+			for(j=q-1;j<n-1;j++)
+				for(l=0;l<m;l++)
+					arr[l][j]=arr[l][j+1];
+					n--;
+		}
+		else if(func[0]=='I'&&func[1]=='R')
+		{
+			scanf("%d",&p);
+			for(j=m;j>p-1;j--)
+				for(l=0;l<n;l++)
+					arr[j][l]=arr[j-1][l];
+			for(j=0;j<n;j++)
+				arr[p-1][j]=0;
+				m++;
+		}
+		else if(func[0]=='I'&&func[1]=='C')
+		{
+			scanf("%d",&q);
+			for(j=n;j>q-1;j--)
+				for(l=0;l<m;l++)
+					arr[l][j]=arr[l][j-1];
+			for(j=0;j<n;j++)
+				arr[j][q-1]=0;
+				n++;
+		}
+	}
+	for(i=0;i<m;i++)
+	{
+		printf("%d",arr[i][0]);
+		for(j=1;j<n;j++)
+			printf(" %d",arr[i][j]);
+		printf("\n");
+	}
+	return 0;
+} 
