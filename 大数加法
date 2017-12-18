@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char s1[100];
+	char s2[100];
+	int a[100];
+	int b[100];
+	memset(s1,0,sizeof(s1));			//元素全部初始化为0
+	memset(s2,0,sizeof(s2));
+	memset(a,0,sizeof(a));
+	memset(b,0,sizeof(b));
+	int result[100];			//用于接收结果 
+	int len1,len2,m,n,i,j;
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		scanf("%s%s",s1,s2);
+		memset(result,0,sizeof(result));			//元素全部初始化为0 
+		len1=strlen(s1);
+		len2=strlen(s2);
+		for(j=0;j<len1;j++) 			//倒序储存 
+			a[j]=s1[len1-j-1]-'0'; 		//减去0的ASCII码的值 
+		for(j=0;j<len2;j++) 
+			b[j]=s2[len2-j-1]-'0';
+		if(len1>len2)
+			m=len1;
+		else
+			m=len2;
+		for(j=0;j<m;j++)
+		{
+			result[j]+=a[j]+b[j];
+			if(result[j]>9)
+			{
+				result[j+1]++;
+				result[j]%=10;
+			}
+		}
+		j=99;
+		while(result[j]==0) 			//去除为0的位次
+			j--;
+		while(j>=0)
+		{	
+			printf("%d",result[j]);
+			j--;
+		}
+		printf("\n");	
+	}
+	return 0;
+}
