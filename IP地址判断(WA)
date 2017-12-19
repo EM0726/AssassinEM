@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char str[31];
+	int i,j,len,dot,num;			//点的个数与数字个数 
+	int cnt;						//数字位数 
+	while(scanf("%s",str)!=EOF)				//当读取内容错误或读到文件结尾时返回EOF即-1
+	{
+		dot=0;
+		num=0;
+		len=strlen(str);
+		if(str[0]=='E'&&str[1]=='n'&&str[2]=='d')
+			return 0;
+		for(i=0;i<len;i++)
+			if(str[i]=='.')
+				dot++;		
+		for(i=0;i<len;i++)
+		{
+			cnt=0;
+			if(str[i]!='.'&&(str[i]>'9'||str[i]<'0'))			//确保不出现数字之外的其他字符
+				break;
+			if(str[i]<='9'&&str[i]>='0')
+			{ 
+				num++;
+				while(str[i]<='9'&&str[i]>='0')				//读到非数字字符时停止 
+				{	
+					i++;
+					cnt++;
+				}
+			}
+			if(cnt==2)
+				if(str[i-2]=='0')				//排除两位数前导零 
+					break;
+			if(cnt>3)
+				break;
+			if(cnt==3)							//确保读取数字不大于255 排除三位数前导零	
+			{
+				if(str[i-3]>'2'||str[i-3]=='2'&&str[i-2]>'5'||str[i-3]=='2'&&str[i-2]=='5'&&str[i-1]>'5')
+					break;
+				if(str[i-3]=='0') 
+					break;
+			}
+		}
+		if(dot==3&&num==4&&len>=7&&len<16) 
+			printf("YES\n");
+		else
+			printf("NO\n");		
+	} 
+	return 0;
+}
