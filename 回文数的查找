@@ -1,0 +1,35 @@
+#include<stdio.h>
+int main()
+{
+	int i,m=0,n,cnt=0;
+	scanf("%d",&n);
+	for(i=10000;i<=999999;i++)
+	{
+		int m=0,a,b=0;
+		a=i;
+		while(a!=0)				//判断是否回文 
+		{
+			b=a%10;
+			a/=10;
+			m=m*10+b;
+		}
+		int sum=0;
+		int num=i;
+		while(num!=0)				//判断各位上数字之和是否=n 
+		{
+			sum+=(num%10);
+			num/=10;
+		}
+		if(n==sum)
+		{
+			if(m==i)
+			{
+				printf("%d\n",m);
+				cnt++;
+			}
+		}
+	}
+	if(cnt==0)
+		printf("-1\n");
+	return 0;
+} 
