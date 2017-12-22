@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<string.h>
+int main() 
+{
+	int n,i,j;
+	scanf("%d",&n);
+	char c[168];
+	for(i=0;i<=n;i++)
+	{
+		gets(c);						//输入换行时有影响 
+		int len=strlen(c);
+		for(j=len-1;j>=0;j--)
+		{
+			if(c[j]<='z'&&c[j]>='a')
+				printf("%c",c[j]);
+		}
+		if(i!=0)						//消除首次换行影响 
+			printf("\n");
+	}
+	
+	return 0;
+}
