@@ -1,0 +1,22 @@
+#include<stdio.h>
+int ladder(int m)
+{
+	int arr[50];
+	arr[2]=1;
+	arr[3]=2;
+	for(int i=4;i<=m+1;i++)
+		arr[i]=arr[i-1]+arr[i-2];
+	return arr[m];
+}
+
+int main()
+{
+	int n,m;
+	scanf("%d",&n);
+	for(int i=0;i<n;i++)
+	{
+		scanf("%d",&m);
+		printf("%d\n",ladder(m));
+	}
+	return 0;
+}
