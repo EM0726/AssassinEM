@@ -1,0 +1,49 @@
+#include<stdio.h>
+int ugly(int x)
+{
+	int cnt,i;
+	for(int j=x;j>0;j--)
+	{
+		i=j;
+		while(i!=1)
+		{
+			cnt=0;
+			if(i%2==0)
+			{
+				i/=2;
+				cnt++;
+			}
+			if(i%3==0)
+			{
+				i/=3;
+				cnt++;
+			}
+			if(i%5==0)
+			{
+				i/=5;
+				cnt++;	
+			}
+			if(cnt==0)
+				break;
+		}	
+		if(i==1)
+			return j;
+	}
+}
+int main()
+{
+	int m,n,i,j;
+	scanf("%d",&m);
+	for(i=0;i<m;i++)
+	{
+		scanf("%d",&n);
+		for(j=1;j<=n;j++)
+		{
+			printf("%d ",ugly(j));
+			while(ugly(j)==ugly(j+1))
+				j++;
+		}
+		printf("\n");
+	}
+	return 0;
+}
