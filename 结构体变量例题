@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<string.h>
+struct student
+{
+	int sum;
+	char name[20];
+	int math;
+	int Eng;
+} stu[100];
+int main()
+{
+	int n,i,j,temp;
+	char c[100];
+	memset(c,0,sizeof(c)); 
+	scanf("%d",&n);
+	for(i=0;i<n;i++) 
+	{
+		scanf("%s",&stu[i].name);
+		scanf("%d",&stu[i].math);
+		scanf("%d",&stu[i].Eng);
+		stu[i].sum=stu[i].Eng+stu[i].math;
+	}
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n-1;j++)
+		{
+			if(stu[j].sum<stu[j+1].sum)
+			{
+				temp=stu[j].sum;
+				stu[j].sum=stu[j+1].sum;
+				stu[j+1].sum=temp;
+				strcpy(c,stu[j].name); 				//交换字符串 
+				strcpy(stu[j].name,stu[j+1].name);
+				strcpy(stu[j+1].name,c);
+			}
+		}
+	}
+	for(i=0;i<n;i++)
+	{
+		printf("%s %d",stu[i].name,stu[i].sum);
+		printf("\n");
+	}
+	return 0;
+}
