@@ -1,0 +1,33 @@
+#include<stdio.h>
+int main()
+{
+	int m,n,p,q;
+	scanf("%d%d%d%d",&m,&n,&p,&q);
+	int i,j,k,sum=0;
+	int arr1[m+1][n+1],arr2[p+1][q+1];
+	for(i=0;i<m;i++)
+		for(j=0;j<n;j++)
+			scanf("%d",&arr1[i][j]);
+	for(i=0;i<p;i++)
+		for(j=0;j<q;j++)
+			scanf("%d",&arr2[i][j]);
+	if(n!=p)						//是否满足矩阵相乘条件 
+	{
+		printf("error\n");
+		return 0;
+	}
+	for(i=0;i<m;i++)				//矩阵乘法运算 
+	{
+		for(j=0;j<q;j++)
+		{
+			sum=0;
+			for(k=0;k<n;k++)
+			{
+				sum+=arr1[i][k]*arr2[k][j];
+			}
+			printf("%d ",sum);
+		}
+		printf("\n");
+	}
+	return 0;
+}
